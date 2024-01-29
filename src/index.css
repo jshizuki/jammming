@@ -1,10 +1,4 @@
 body {
-  /* Manual */
-  background-image: url("https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  /* Default */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
