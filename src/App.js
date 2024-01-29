@@ -9,9 +9,9 @@ function App() {
     <div className={styles.appContainer}>
       <ThemeProvider theme={theme}>
         <div className={styles.bg}>
-          <p className={styles.header}>
-            Ja<span style={{ color: "#ff0000" }}>mmm</span>ing
-          </p>
+        <p className={styles.header}>
+          Ja<span style={{ color: "#ff0000" }}>mmm</span>ing
+        </p>
           <SearchBar />
         </div>
 
