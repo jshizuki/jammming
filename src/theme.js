@@ -28,11 +28,13 @@ const theme = createTheme({
           backgroundColor: 'red',
           borderRadius: 10,
           '.Mui-focused': {
-            color: 'white'
+            color: 'white',
+            fontWeight: 'bold',
           },
           '.MuiInputLabel-root': {
-            color: 'white'
-          }
+            color: 'white',
+            fontWeight: 'bold'
+          },
         }
       }
     }

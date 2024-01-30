@@ -1,0 +1,10 @@
+.container {
+  background-color: #010206;
+  width: 40%;
+  height: 50%;
+  margin: auto;
+  opacity: 90%;
+  border-radius: 10px;
+  color: white;
+  text-align: start;
+}
