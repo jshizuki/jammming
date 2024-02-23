@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 // Components
 import SearchBar from "./components/SearchBar";
-import SearchResults from './components/SearchResults';
+import SearchResults from "./components/SearchResults";
+import Playlist from "./components/Playlist";
 // CSS styles
 import styles from "./App.module.css";
 
@@ -33,15 +34,16 @@ function App() {
 
   return (
     <div className={styles.appContainer}>
+      <div className={styles.bg}></div>
       <ThemeProvider theme={theme}>
-        <div className={styles.bg}>
         <p className={styles.header}>
           Ja<span style={{ color: "#ff0000" }}>mmm</span>ing
         </p>
-          <SearchBar />
-          <SearchResults musicData={musicData}/>
+        <SearchBar />
+        <div className={styles.columns}>
+          <SearchResults musicData={musicData} />
+          <Playlist />
         </div>
-
         {/* Add other components here */}
       </ThemeProvider>
     </div>

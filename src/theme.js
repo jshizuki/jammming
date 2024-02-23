@@ -25,14 +25,14 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           width: 250,
-          backgroundColor: 'red',
+          backgroundColor: 'white',
           borderRadius: 10,
           '.Mui-focused': {
-            color: 'white',
+            color: 'black',
             fontWeight: 'bold',
           },
           '.MuiInputLabel-root': {
-            color: 'white',
+            color: 'black',
             fontWeight: 'bold'
           },
         }
