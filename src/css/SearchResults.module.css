@@ -1,10 +1,15 @@
 .container {
-  background-color: #010206;
+  background-color: #020d15;
   width: 40%;
-  height: 50%;
-  /* margin: auto; */
+  height: 450px;
   opacity: 90%;
-  border-radius: 10px;
+  border-radius: 8px;
   color: white;
   text-align: start;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+h2 {
+  margin: 0;
 }

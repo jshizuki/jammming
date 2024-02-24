@@ -27,6 +27,12 @@ const musicData = [
     artist: "Christina Aguilera",
     album: "Bionic",
   },
+  {
+    id: 4,
+    name: "Flowers",
+    artist: "Miley Cyrus",
+    album: "Endless Summer Vacation",
+  }
 ];
 
 function App() {
