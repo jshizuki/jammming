@@ -1,15 +1,21 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 // CSS styles
-import styles from '../css/SearchBar.module.css'
+import styles from "../css/SearchBar.module.css";
 
-function SearchBar() {
+function SearchBar({ handleSubmit, handleChange }) {
   return (
     <div className={styles.container}>
-      <form>
-        <TextField id="outlined-basic" label="Search music" variant="outlined"/><br />
-        <Button variant="contained">Search</Button>
+      <form onClick={handleSubmit}>
+        <TextField
+          id="outlined-basic"
+          label="Search music"
+          variant="outlined"
+          onChange={handleChange}
+        />
+        <br />
+        <Button type="submit" variant="contained">Search</Button>
       </form>
     </div>
   );

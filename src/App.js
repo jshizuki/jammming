@@ -32,11 +32,20 @@ const musicData = [
     name: "Flowers",
     artist: "Miley Cyrus",
     album: "Endless Summer Vacation",
-  }
+  },
 ];
 
 function App() {
-  const [searchResults, setSearchResults] = useState(musicData);
+  const [userInput, setUserInput] = useState();
+
+  const handleChange = (event) => {
+    setUserInput(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    return console.log(userInput);
+  };
 
   return (
     <div className={styles.appContainer}>
@@ -45,7 +54,10 @@ function App() {
         <p className={styles.header}>
           Ja<span style={{ color: "#ff0000" }}>mmm</span>ing
         </p>
-        <SearchBar />
+        <SearchBar
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+        />
         <div className={styles.columns}>
           <SearchResults musicData={musicData} />
           <Playlist />
