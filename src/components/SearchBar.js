@@ -7,7 +7,7 @@ import styles from "../css/SearchBar.module.css";
 function SearchBar({ handleSubmit, handleChange }) {
   return (
     <div className={styles.container}>
-      <form onClick={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <TextField
           id="outlined-basic"
           label="Search music"

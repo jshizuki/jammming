@@ -4,7 +4,7 @@ import Tracklist from './Tracklist';
 // CSS
 import styles from "../css/SearchResults.module.css";
 
-function SearchResults({ musicData }) {
+function SearchResults({musicData}) {
   return (
     <div className={styles.container}>
       <h2>Results</h2>

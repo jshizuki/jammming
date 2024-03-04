@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 // Components
@@ -7,36 +7,40 @@ import SearchResults from "./components/SearchResults";
 import Playlist from "./components/Playlist";
 // CSS styles
 import styles from "./App.module.css";
+import {search} from "./util/Spotify.js";
 
-const musicData = [
-  {
-    id: 1,
-    name: "Baby One More Time",
-    artist: "Britney Spears",
-    album: "Baby One More Time",
-  },
-  {
-    id: 2,
-    name: "Don't Let Me Be The Last To Know",
-    artist: "Britney Spears",
-    album: "Oops I Did It Again",
-  },
-  {
-    id: 3,
-    name: "Not Myself Tonight",
-    artist: "Christina Aguilera",
-    album: "Bionic",
-  },
-  {
-    id: 4,
-    name: "Flowers",
-    artist: "Miley Cyrus",
-    album: "Endless Summer Vacation",
-  },
-];
+// const musicData = [
+//   {
+//     id: 1,
+//     name: "Baby One More Time",
+//     artist: "Britney Spears",
+//     album: "Baby One More Time",
+//   },
+//   {
+//     id: 2,
+//     name: "Don't Let Me Be The Last To Know",
+//     artist: "Britney Spears",
+//     album: "Oops I Did It Again",
+//   },
+//   {
+//     id: 3,
+//     name: "Not Myself Tonight",
+//     artist: "Christina Aguilera",
+//     album: "Bionic",
+//   },
+//   {
+//     id: 4,
+//     name: "Flowers",
+//     artist: "Miley Cyrus",
+//     album: "Endless Summer Vacation",
+//   },
+// ];
+
+// console.log(Array.isArray(musicData));
 
 function App() {
-  const [userInput, setUserInput] = useState();
+  const [userInput, setUserInput] = useState("");
+  const [musicData, setMusicData] = useState([]);
 
   const handleChange = (event) => {
     setUserInput(event.target.value);
@@ -44,8 +48,16 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return console.log(userInput);
+    search(userInput).then(data => {
+      setMusicData(data);
+    })
   };
+
+  // useEffect(() => {
+  //   console.log(musicData);
+  // }, [musicData]);
+
+  // console.log(test)
 
   return (
     <div className={styles.appContainer}>

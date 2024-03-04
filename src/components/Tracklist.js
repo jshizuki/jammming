@@ -1,7 +1,8 @@
 import React from 'react';
 import Track from './Track';
 
-function Tracklist({ musicData }) {
+function Tracklist({musicData}) {
+  console.log(musicData);
   return (
     <>
       {musicData.map((music) => {
