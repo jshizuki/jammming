@@ -24,6 +24,7 @@ export const getAccessToken = () => {
 export const search = (term) => {
   if (term === "") {
     return Promise.resolve([]);
+    // This makes sure hitting enter without typing anything resolves into an empty array
   }
 
   const url = `https://api.spotify.com/v1/search?type=track&q=${term}`;

@@ -15,9 +15,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: '#020d15', // Your custom button background color
+          fontWeight: 'bolder',
           width: 150,
           borderRadius: 20,
           margin: 20,
+          '&:hover': {
+            backgroundColor: '#003841'
+          }
         },
       },
     },

@@ -37,7 +37,7 @@ function App() {
       <div className={styles.bg}></div>
       <ThemeProvider theme={theme}>
         <p className={styles.header}>
-          Ja<span style={{ color: "#ff0000" }}>mmm</span>ing
+          Ja<span style={{ color: "#fc5a4b" }}>mmm</span>ing
         </p>
         <SearchBar handleSubmit={handleSubmit} handleChange={handleChange} />
         <div className={styles.columns}>
