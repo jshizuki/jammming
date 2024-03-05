@@ -1,15 +1,16 @@
-import React from 'react';
-import Track from './Track';
+import React from "react";
+import Track from "./Track";
 
-function Tracklist({musicData}) {
-  console.log(musicData);
-  return (
-    <>
-      {musicData.map((music) => {
-        return <Track key={music.id} music={music} />
-      })}
-    </>
-  );
+function Tracklist({ musicData, isAuthorized }) {
+  if (isAuthorized) {
+    return (
+      <>
+        {musicData.map((music) => {
+          return <Track key={music.id} music={music} />;
+        })}
+      </>
+    );
+  }
 }
 
 export default Tracklist;

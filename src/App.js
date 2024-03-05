@@ -7,7 +7,50 @@ import SearchResults from "./components/SearchResults";
 import Playlist from "./components/Playlist";
 // CSS styles
 import styles from "./App.module.css";
-import {search} from "./util/Spotify.js";
+// Spotify API
+import { getAccessToken } from "./util/Spotify.js";
+import { search } from "./util/Spotify.js";
+
+function App() {
+  const [userInput, setUserInput] = useState("");
+  const [musicData, setMusicData] = useState([]);
+  const [isAuthorized, setIsAuthorized] = useState(false);
+
+  useEffect(() => {
+    const token = getAccessToken();
+    setIsAuthorized(!!token);
+  }, []);
+
+  const handleChange = (event) => {
+    setUserInput(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    search(userInput).then((data) => {
+      setMusicData(data);
+    });
+  };
+
+  return (
+    <div className={styles.appContainer}>
+      <div className={styles.bg}></div>
+      <ThemeProvider theme={theme}>
+        <p className={styles.header}>
+          Ja<span style={{ color: "#ff0000" }}>mmm</span>ing
+        </p>
+        <SearchBar handleSubmit={handleSubmit} handleChange={handleChange} />
+        <div className={styles.columns}>
+          <SearchResults musicData={musicData} isAuthorized={isAuthorized}/>
+          <Playlist />
+        </div>
+        {/* Add other components here */}
+      </ThemeProvider>
+    </div>
+  );
+}
+
+export default App;
 
 // const musicData = [
 //   {
@@ -35,49 +78,3 @@ import {search} from "./util/Spotify.js";
 //     album: "Endless Summer Vacation",
 //   },
 // ];
-
-// console.log(Array.isArray(musicData));
-
-function App() {
-  const [userInput, setUserInput] = useState("");
-  const [musicData, setMusicData] = useState([]);
-
-  const handleChange = (event) => {
-    setUserInput(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    search(userInput).then(data => {
-      setMusicData(data);
-    })
-  };
-
-  // useEffect(() => {
-  //   console.log(musicData);
-  // }, [musicData]);
-
-  // console.log(test)
-
-  return (
-    <div className={styles.appContainer}>
-      <div className={styles.bg}></div>
-      <ThemeProvider theme={theme}>
-        <p className={styles.header}>
-          Ja<span style={{ color: "#ff0000" }}>mmm</span>ing
-        </p>
-        <SearchBar
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-        />
-        <div className={styles.columns}>
-          <SearchResults musicData={musicData} />
-          <Playlist />
-        </div>
-        {/* Add other components here */}
-      </ThemeProvider>
-    </div>
-  );
-}
-
-export default App;
