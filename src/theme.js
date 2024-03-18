@@ -25,12 +25,12 @@ const theme = createTheme({
         },
       },
     },
-    MuiTextField: {
+    SearchBarTextField: {
       styleOverrides: {
         root: {
           width: 250,
           backgroundColor: 'white',
-          borderRadius: 10,
+          borderRadius: 2,
           '.Mui-focused': {
             color: 'black',
             fontWeight: 'bold',
@@ -38,6 +38,26 @@ const theme = createTheme({
           '.MuiInputLabel-root': {
             color: 'black',
             fontWeight: 'bold'
+          },
+        },
+      }
+    },
+    PlaylistTextField: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#020d15',
+          width: "100%",
+          paddingTop: '8px',
+          '& input::placeholder': {
+            color: 'white',
+            fontSize: 'x-large',
+            fontWeight: 'bold'
+          },
+          '.Mui-focused': {
+            color: "white",
+            fontSize: 'x-large',
+            fontWeight: 'bold',
+            marginTop: '-3%'
           },
         }
       }

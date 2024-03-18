@@ -15,21 +15,32 @@ function App() {
   const [userInput, setUserInput] = useState("");
   const [musicData, setMusicData] = useState([]);
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [playlistName, setPlaylistName] = useState("");
+  const [showPlaylistForm, setShowPlaylistForm ] = useState(true);
 
   useEffect(() => {
     const token = getAccessToken();
     setIsAuthorized(!!token);
   }, []);
 
-  const handleChange = (event) => {
+  const handleUserInputChange = (event) => {
     setUserInput(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSearchSubmit = (event) => {
     event.preventDefault();
     search(userInput).then((data) => {
       setMusicData(data);
     });
+  };
+
+  const handlePlaylistNameChange = (event) => {
+    setPlaylistName(event.target.value);
+  };
+
+  const handlePlaylistNameSubmit = (event) => {
+    event.preventDefault();
+    setShowPlaylistForm(false);
   };
 
   return (
@@ -39,10 +50,18 @@ function App() {
         <p className={styles.header}>
           Ja<span style={{ color: "#fc5a4b" }}>mmm</span>ing
         </p>
-        <SearchBar handleSubmit={handleSubmit} handleChange={handleChange} />
+        <SearchBar
+          handleSearchSubmit={handleSearchSubmit}
+          handleUserInputChange={handleUserInputChange}
+        />
         <div className={styles.columns}>
-          <SearchResults musicData={musicData} isAuthorized={isAuthorized}/>
-          <Playlist />
+          <SearchResults musicData={musicData} isAuthorized={isAuthorized} />
+          <Playlist
+            handlePlaylistNameChange={handlePlaylistNameChange}
+            handlePlaylistNameSubmit={handlePlaylistNameSubmit}
+            playlistName={playlistName}
+            showPlaylistForm={showPlaylistForm}
+          />
         </div>
         {/* Add other components here */}
       </ThemeProvider>
