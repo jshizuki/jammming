@@ -3,12 +3,15 @@ import TextField from "@mui/material/TextField";
 // CSS
 import styles from "../css/Playlist.module.css";
 import theme from "../theme";
+import PlaylistTrack from "./PlaylistTrack";
 
 function Playlist({
   handlePlaylistNameChange,
   handlePlaylistNameSubmit,
   playlistName,
   showPlaylistForm,
+  targetTracks,
+  handleSaveToSpotify
 }) {
   return (
     <div className={styles.container}>
@@ -33,7 +36,10 @@ function Playlist({
           <hr />
         </div>
       )}
-      <button>Save to Spotify</button>
+      {targetTracks.map((targetTrack) => {
+        return <PlaylistTrack key={targetTrack.id} targetTrack={targetTrack} />;
+      })}
+      <button onClick={handleSaveToSpotify}>Save to Spotify</button>
     </div>
   );
 }

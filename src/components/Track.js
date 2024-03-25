@@ -2,7 +2,7 @@ import React from "react";
 // CSS
 import styles from "../css/Track.module.css";
 
-function Track({ music }) {
+function Track({ music, handleTrackClick }) {
   return (
     <>
       <div className={styles.trackContainer}>
@@ -12,7 +12,9 @@ function Track({ music }) {
             {music.artist} | {music.album}
           </p>
         </div>
-        <h3 className={styles.plusSign}>+</h3>
+        <h3 className={styles.plusSign} onClick={() => handleTrackClick(music)}>
+          +
+        </h3>
       </div>
       <hr />
     </>

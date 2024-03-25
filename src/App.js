@@ -17,6 +17,7 @@ function App() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
   const [showPlaylistForm, setShowPlaylistForm ] = useState(true);
+  const [targetTracks, setTargetTracks] = useState([]);
 
   useEffect(() => {
     const token = getAccessToken();
@@ -43,6 +44,20 @@ function App() {
     setShowPlaylistForm(false);
   };
 
+  const handleTrackClick = (track) => {
+    setTargetTracks(prev => {
+      if (prev.find(each => each.id === track.id) === undefined) {
+        return [...prev, track]
+      } else {
+        return [...prev]
+      }
+    });
+  }
+
+  const handleSaveToSpotify = () => {
+    console.log("handleSaveToSpotify")
+  }
+
   return (
     <div className={styles.appContainer}>
       <div className={styles.bg}></div>
@@ -55,12 +70,14 @@ function App() {
           handleUserInputChange={handleUserInputChange}
         />
         <div className={styles.columns}>
-          <SearchResults musicData={musicData} isAuthorized={isAuthorized} />
+          <SearchResults musicData={musicData} isAuthorized={isAuthorized} handleTrackClick={handleTrackClick} />
           <Playlist
             handlePlaylistNameChange={handlePlaylistNameChange}
             handlePlaylistNameSubmit={handlePlaylistNameSubmit}
             playlistName={playlistName}
             showPlaylistForm={showPlaylistForm}
+            targetTracks={targetTracks}
+            handleSaveToSpotify={handleSaveToSpotify}
           />
         </div>
         {/* Add other components here */}
