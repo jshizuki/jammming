@@ -4,6 +4,8 @@ import TextField from "@mui/material/TextField";
 import styles from "../css/Playlist.module.css";
 import theme from "../theme";
 import PlaylistTrack from "./PlaylistTrack";
+// Material UI
+import Button from "@mui/material/Button";
 
 function Playlist({
   handlePlaylistNameChange,
@@ -11,7 +13,7 @@ function Playlist({
   playlistName,
   showPlaylistForm,
   targetTracks,
-  handleSaveToSpotify
+  handleSaveToSpotify,
 }) {
   return (
     <div className={styles.container}>
@@ -39,7 +41,15 @@ function Playlist({
       {targetTracks.map((targetTrack) => {
         return <PlaylistTrack key={targetTrack.id} targetTrack={targetTrack} />;
       })}
-      <button onClick={handleSaveToSpotify}>Save to Spotify</button>
+      <div className={styles.button}>
+        <Button
+          variant="contained"
+          onClick={handleSaveToSpotify}
+          sx={theme.components.PlaylistSaveButton.styleOverrides.root}
+        >
+          Save to Spotify
+        </Button>
+      </div>
     </div>
   );
 }

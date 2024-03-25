@@ -55,7 +55,6 @@ function App() {
   }
 
   const handleSaveToSpotify = () => {
-    console.log("handleSaveToSpotify")
   }
 
   return (

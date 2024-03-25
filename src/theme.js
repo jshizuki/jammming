@@ -25,6 +25,20 @@ const theme = createTheme({
         },
       },
     },
+    PlaylistSaveButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#003841', // Your custom button background color
+          text: 'white',
+          fontWeight: 'bolder',
+          width: 180,
+          borderRadius: 20,
+          '&:hover': {
+            color: '#fc5a4b'
+          }
+        },
+      },
+    },
     SearchBarTextField: {
       styleOverrides: {
         root: {

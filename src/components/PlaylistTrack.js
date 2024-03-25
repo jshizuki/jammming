@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../css/Track.module.css"
+import styles from "../css/Track.module.css";
 
 function PlaylistTrack({ targetTrack }) {
   return (
@@ -11,9 +11,7 @@ function PlaylistTrack({ targetTrack }) {
             {targetTrack.artist} | {targetTrack.album}
           </p>
         </div>
-        <h3 className={styles.plusSign} >
-          +
-        </h3>
+        <h3 className={styles.plusSign}>+</h3>
       </div>
       <hr />
     </>
