@@ -13,6 +13,7 @@ function Playlist({
   playlistName,
   showPlaylistForm,
   targetTracks,
+  handlePlaylistTrackClick,
   handleSaveToSpotify,
 }) {
   return (
@@ -39,7 +40,13 @@ function Playlist({
         </div>
       )}
       {targetTracks.map((targetTrack) => {
-        return <PlaylistTrack key={targetTrack.id} targetTrack={targetTrack} />;
+        return (
+          <PlaylistTrack
+            key={targetTrack.id}
+            targetTrack={targetTrack}
+            handlePlaylistTrackClick={handlePlaylistTrackClick}
+          />
+        );
       })}
       <div className={styles.button}>
         <Button

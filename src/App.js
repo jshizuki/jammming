@@ -16,7 +16,7 @@ function App() {
   const [musicData, setMusicData] = useState([]);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
-  const [showPlaylistForm, setShowPlaylistForm ] = useState(true);
+  const [showPlaylistForm, setShowPlaylistForm] = useState(true);
   const [targetTracks, setTargetTracks] = useState([]);
 
   useEffect(() => {
@@ -45,17 +45,32 @@ function App() {
   };
 
   const handleTrackClick = (track) => {
-    setTargetTracks(prev => {
-      if (prev.find(each => each.id === track.id) === undefined) {
-        return [...prev, track]
+    setTargetTracks((prev) => {
+      if (prev.find((each) => each.id === track.id) === undefined) {
+        return [...prev, track];
       } else {
-        return [...prev]
+        return [...prev];
       }
     });
-  }
+  };
+
+  const handlePlaylistTrackClick = (track) => {
+    setTargetTracks((prev) => {
+      return prev.filter((each) => {
+        return each.id !== track.id;
+      });
+    });
+  };
 
   const handleSaveToSpotify = () => {
-  }
+    // let object = {}
+    // object[playlistName] = targetTracks
+    // setPlaylists(prev => {
+    //   return [...prev, object]
+    // })
+    // setPlaylistName("")
+    // setTargetTracks([]);
+  };
 
   return (
     <div className={styles.appContainer}>
@@ -69,13 +84,18 @@ function App() {
           handleUserInputChange={handleUserInputChange}
         />
         <div className={styles.columns}>
-          <SearchResults musicData={musicData} isAuthorized={isAuthorized} handleTrackClick={handleTrackClick} />
+          <SearchResults
+            musicData={musicData}
+            isAuthorized={isAuthorized}
+            handleTrackClick={handleTrackClick}
+          />
           <Playlist
             handlePlaylistNameChange={handlePlaylistNameChange}
             handlePlaylistNameSubmit={handlePlaylistNameSubmit}
             playlistName={playlistName}
             showPlaylistForm={showPlaylistForm}
             targetTracks={targetTracks}
+            handlePlaylistTrackClick={handlePlaylistTrackClick}
             handleSaveToSpotify={handleSaveToSpotify}
           />
         </div>
