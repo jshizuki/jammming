@@ -3,7 +3,6 @@ const clientID = "815bc09e8d134d799cc7b39dec28e87a";
 const redirectURI = "http://localhost:3000/";
 
 export const getAccessToken = () => {
-
   if (accessToken) {
     return accessToken;
   }
@@ -51,4 +50,47 @@ export const search = (term) => {
         album: track.album.name,
       }));
     });
+};
+
+export const savePlaylistName = (playlistName) => {
+  if (!playlistName) {
+    return;
+  }
+
+  const userIdUrl = "https://api.spotify.com/v1/me";
+  let accessToken = getAccessToken();
+  let userId = "";
+
+  return fetch(userIdUrl, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  })
+    .then(
+      (response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Request failed!");
+      },
+      (networkError) => console.log(networkError.message)
+    )
+    .then((jsonResponse) => {
+      userId = jsonResponse.id;
+      const createPlaylistUrl = `https://api.spotify.com/v1/users/${userId}/playlists`;
+
+      return fetch(createPlaylistUrl, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+        method: "POST",
+        body: JSON.stringify({ "name": playlistName }),
+      })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Create playlist request failed!")
+      })
+      .then(jsonResponse => {
+        const playlistID = jsonResponse.id
+        console.log(playlistID);
+      })
+    })
 };

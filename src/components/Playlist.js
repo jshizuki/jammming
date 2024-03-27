@@ -51,7 +51,7 @@ function Playlist({
       <div className={styles.button}>
         <Button
           variant="contained"
-          onClick={handleSaveToSpotify}
+          onClick={() => handleSaveToSpotify(playlistName)}
           sx={theme.components.PlaylistSaveButton.styleOverrides.root}
         >
           Save to Spotify

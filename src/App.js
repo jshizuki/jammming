@@ -10,6 +10,7 @@ import styles from "./App.module.css";
 // Spotify API
 import { getAccessToken } from "./util/Spotify.js";
 import { search } from "./util/Spotify.js";
+import { savePlaylistName } from "./util/Spotify.js";
 
 function App() {
   const [userInput, setUserInput] = useState("");
@@ -62,7 +63,8 @@ function App() {
     });
   };
 
-  const handleSaveToSpotify = () => {
+  const handleSaveToSpotify = (playlistName) => {
+    savePlaylistName(playlistName);
     // let object = {}
     // object[playlistName] = targetTracks
     // setPlaylists(prev => {
