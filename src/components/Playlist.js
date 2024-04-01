@@ -34,7 +34,7 @@ function Playlist({
       ) : (
         <div>
           <h2>
-            <span style={{ color: "#fc5a4b" }}>{playlistName}</span>
+            <span style={{ color: "white" }}>{playlistName}</span>
           </h2>
           <hr />
         </div>

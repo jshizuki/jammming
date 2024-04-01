@@ -28,7 +28,7 @@ const theme = createTheme({
     PlaylistSaveButton: {
       styleOverrides: {
         root: {
-          backgroundColor: '#003841', // Your custom button background color
+          backgroundColor: '#fc5a4b', // Your custom button background color
           text: 'white',
           fontWeight: 'bolder',
           width: 180,
@@ -50,8 +50,11 @@ const theme = createTheme({
             fontWeight: 'bold',
           },
           '.MuiInputLabel-root': {
-            color: 'black',
+            color: '#020d15',
             fontWeight: 'bold'
+          },
+          '.MuiInputLabel-root.Mui-focused': {
+            color: "#020d15"
           },
         },
       }

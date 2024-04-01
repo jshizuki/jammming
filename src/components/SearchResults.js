@@ -8,7 +8,7 @@ function SearchResults({ musicData, isAuthorized, handleTrackClick }) {
   return (
     <div className={styles.container}>
       <h2>
-        <span style={{ color: "#fc5a4b" }}>Results</span>
+        <span style={{ color: "white" }}>Results</span>
       </h2>
       <hr className={styles.hr} />
       <Tracklist

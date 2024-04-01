@@ -3,6 +3,7 @@ const clientID = "815bc09e8d134d799cc7b39dec28e87a";
 const redirectURI = "https://www.js_react_jammming.surge.sh";
 
 // "http://localhost:3000/"
+// "https://www.js_react_jammming.surge.sh"
 
 export const getAccessToken = () => {
   if (accessToken) {
