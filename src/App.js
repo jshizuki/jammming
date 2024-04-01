@@ -68,6 +68,8 @@ function App() {
       return targetTrack.uri;
     });
     savePlaylist(playlistName, trackURIs);
+    setPlaylistName("");
+    setTargetTracks([]);
   };
 
   return (
