@@ -77,7 +77,7 @@ function App() {
       <div className={styles.bg}></div>
       <ThemeProvider theme={theme}>
         <p className={styles.header}>
-          Ja<span style={{ color: "#fc5a4b" }}>mmm</span>ing
+          Ja<span style={{ color: "#131c27" }}>mmm</span>ing
         </p>
         <SearchBar
           handleSearchSubmit={handleSearchSubmit}

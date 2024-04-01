@@ -20,7 +20,7 @@ const theme = createTheme({
           borderRadius: 20,
           margin: 20,
           '&:hover': {
-            backgroundColor: '#003841'
+            backgroundColor: "#131c27"
           }
         },
       },
@@ -28,13 +28,13 @@ const theme = createTheme({
     PlaylistSaveButton: {
       styleOverrides: {
         root: {
-          backgroundColor: '#fc5a4b', // Your custom button background color
-          text: 'white',
+          backgroundColor: 'white', // Your custom button background color
+          color: '#020d15',
           fontWeight: 'bolder',
           width: 180,
           borderRadius: 20,
           '&:hover': {
-            color: '#fc5a4b'
+            color: 'white'
           }
         },
       },
