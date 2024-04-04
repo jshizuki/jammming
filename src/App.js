@@ -17,7 +17,7 @@ function App() {
   const [musicData, setMusicData] = useState([]);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
-  const [showPlaylistForm, setShowPlaylistForm] = useState(true);
+  // const [showPlaylistForm, setShowPlaylistForm] = useState(true);
   const [targetTracks, setTargetTracks] = useState([]);
 
   useEffect(() => {
@@ -34,7 +34,6 @@ function App() {
     search(userInput).then((data) => {
       setMusicData(data);
     });
-    console.log(musicData)
   };
 
   const handlePlaylistNameChange = (event) => {
@@ -95,7 +94,7 @@ function App() {
             handlePlaylistNameChange={handlePlaylistNameChange}
             handlePlaylistNameSubmit={handlePlaylistNameSubmit}
             playlistName={playlistName}
-            showPlaylistForm={showPlaylistForm}
+            // showPlaylistForm={showPlaylistForm}
             targetTracks={targetTracks}
             handlePlaylistTrackClick={handlePlaylistTrackClick}
             handleSaveToSpotify={handleSaveToSpotify}
