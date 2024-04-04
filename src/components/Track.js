@@ -7,7 +7,10 @@ function Track({ music, handleTrackClick }) {
     <>
       <div className={styles.trackContainer}>
         <div key={music.id}>
-          <h3>{music.name}</h3>
+          <div className={styles.nameAndPlayButton}>
+            <h3>{music.name}</h3>
+            <i class="fa-solid fa-circle-play"></i>
+          </div>
           <p>
             {music.artist} | {music.album}
           </p>

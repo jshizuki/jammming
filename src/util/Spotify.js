@@ -1,6 +1,6 @@
 let accessToken = "";
 const clientID = "815bc09e8d134d799cc7b39dec28e87a";
-const redirectURI = "https://www.js_react_jammming.surge.sh";
+const redirectURI = "http://localhost:3000/";
 
 // "http://localhost:3000/"
 // "https://www.js_react_jammming.surge.sh"
@@ -52,6 +52,7 @@ export const search = (term) => {
         name: track.name,
         artist: track.artists[0].name,
         album: track.album.name,
+        preview_url: track.preview_url
       }));
     });
 };

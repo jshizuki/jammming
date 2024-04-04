@@ -34,6 +34,7 @@ function App() {
     search(userInput).then((data) => {
       setMusicData(data);
     });
+    console.log(musicData)
   };
 
   const handlePlaylistNameChange = (event) => {
@@ -42,7 +43,8 @@ function App() {
 
   const handlePlaylistNameSubmit = (event) => {
     event.preventDefault();
-    setShowPlaylistForm(false);
+    console.log(playlistName)
+    // setShowPlaylistForm(false);
   };
 
   const handleTrackClick = (track) => {

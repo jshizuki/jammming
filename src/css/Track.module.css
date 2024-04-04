@@ -17,3 +17,13 @@ p {
   /* background-color: navy; */
   margin: -5px 10px 0px 10px;
 }
+
+.nameAndPlayButton {
+  display: flex;
+}
+
+i {
+  /* background-color: red; */
+  margin-left: 8px;
+  padding-top: 22px;
+}

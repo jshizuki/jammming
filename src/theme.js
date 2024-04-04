@@ -46,7 +46,7 @@ const theme = createTheme({
           backgroundColor: 'white',
           borderRadius: 2,
           '.Mui-focused': {
-            color: 'black',
+            color: '#020d15',
             fontWeight: 'bold',
           },
           '.MuiInputLabel-root': {
@@ -65,16 +65,21 @@ const theme = createTheme({
           backgroundColor: '#020d15',
           width: "100%",
           paddingTop: '8px',
-          '& input::placeholder': {
+          '& input': {
             color: 'white',
             fontSize: 'x-large',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            marginTop: '-3%'
           },
+          // '& input::placeholder': {
+          //   color: 'white',
+          //   fontSize: 'x-large',
+          //   fontWeight: 'bold'
+          // },
           '.Mui-focused': {
             color: "white",
             fontSize: 'x-large',
             fontWeight: 'bold',
-            marginTop: '-3%'
           },
         }
       }

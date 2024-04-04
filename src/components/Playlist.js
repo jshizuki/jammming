@@ -18,27 +18,18 @@ function Playlist({
 }) {
   return (
     <div className={styles.container}>
-      {showPlaylistForm === true ? (
-        <form onSubmit={handlePlaylistNameSubmit}>
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            onChange={handlePlaylistNameChange}
-            value={playlistName}
-            placeholder="Create a new playlist"
-            sx={theme.components.PlaylistTextField.styleOverrides.root}
-          ></TextField>
-          <br />
-          <br />
-        </form>
-      ) : (
-        <div>
-          <h2>
-            <span style={{ color: "white" }}>{playlistName}</span>
-          </h2>
-          <hr />
-        </div>
-      )}
+      <form onSubmit={handlePlaylistNameSubmit}>
+        <TextField
+          id="standard-basic"
+          variant="standard"
+          onChange={handlePlaylistNameChange}
+          value={playlistName}
+          placeholder={"Create a new playlist" || playlistName}
+          sx={theme.components.PlaylistTextField.styleOverrides.root}
+        ></TextField>
+        <br />
+        <br />
+      </form>
       {targetTracks.map((targetTrack) => {
         return (
           <PlaylistTrack
