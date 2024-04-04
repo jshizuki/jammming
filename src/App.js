@@ -17,7 +17,6 @@ function App() {
   const [musicData, setMusicData] = useState([]);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
-  // const [showPlaylistForm, setShowPlaylistForm] = useState(true);
   const [targetTracks, setTargetTracks] = useState([]);
 
   useEffect(() => {
@@ -94,7 +93,6 @@ function App() {
             handlePlaylistNameChange={handlePlaylistNameChange}
             handlePlaylistNameSubmit={handlePlaylistNameSubmit}
             playlistName={playlistName}
-            // showPlaylistForm={showPlaylistForm}
             targetTracks={targetTracks}
             handlePlaylistTrackClick={handlePlaylistTrackClick}
             handleSaveToSpotify={handleSaveToSpotify}

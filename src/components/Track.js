@@ -10,6 +10,10 @@ function Track({ music, handleTrackClick }) {
     if (audio) {
       audio.addEventListener("ended", handleAudioEnded);
       return () => {
+        if (!audio.paused) {
+          audio.pause(); // Pause the audio if it's playing
+          setIsPlaying(false); // Update state to reflect audio playback state
+        }
         audio.removeEventListener("ended", handleAudioEnded);
       };
     }
@@ -41,14 +45,18 @@ function Track({ music, handleTrackClick }) {
       <div className={styles.trackContainer}>
         <div key={music.id}>
           <div className={styles.nameAndPlayButton}>
-            <i
-              className={
-                isPlaying
-                  ? "fa-solid fa-circle-pause"
-                  : "fa-regular fa-circle-play"
-              }
-              onClick={() => handlePlayClick(music.previewUrl)}
-            ></i>
+            {music.previewUrl !== null ? (
+              <i
+                className={
+                  isPlaying
+                    ? "fa-solid fa-circle-pause"
+                    : "fa-regular fa-circle-play"
+                }
+                onClick={() => handlePlayClick(music.previewUrl)}
+              ></i>
+            ) : (
+              ""
+            )}
             <h3>{music.name}</h3>
           </div>
           <p>
