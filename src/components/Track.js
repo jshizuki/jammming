@@ -17,7 +17,7 @@ function Track({ music, handleTrackClick }) {
         audio.removeEventListener("ended", handleAudioEnded);
       };
     }
-  }, [audio]);
+  }, [audio])
 
   const handlePlayClick = (audioClip) => {
     if (!audio) {

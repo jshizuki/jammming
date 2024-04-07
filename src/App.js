@@ -42,7 +42,6 @@ function App() {
   const handlePlaylistNameSubmit = (event) => {
     event.preventDefault();
     console.log(playlistName)
-    // setShowPlaylistForm(false);
   };
 
   const handleTrackClick = (track) => {
