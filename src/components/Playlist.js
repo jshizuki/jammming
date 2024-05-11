@@ -11,7 +11,6 @@ function Playlist({
   handlePlaylistNameChange,
   handlePlaylistNameSubmit,
   playlistName,
-  showPlaylistForm,
   targetTracks,
   handlePlaylistTrackClick,
   handleSaveToSpotify,

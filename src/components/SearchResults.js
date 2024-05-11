@@ -7,9 +7,7 @@ import styles from "../css/SearchResults.module.css";
 function SearchResults({ musicData, isAuthorized, handleTrackClick }) {
   return (
     <div className={styles.container}>
-      <h2>
-        <span style={{ color: "white" }}>Results</span>
-      </h2>
+      <h2>Results</h2>
       <hr className={styles.hr} />
       <Tracklist
         musicData={musicData}

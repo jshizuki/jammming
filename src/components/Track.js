@@ -2,43 +2,7 @@ import React, { useState, useEffect } from "react";
 // CSS
 import styles from "../css/Track.module.css";
 
-function Track({ music, handleTrackClick }) {
-  const [audio, setAudio] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    if (audio) {
-      audio.addEventListener("ended", handleAudioEnded);
-      return () => {
-        if (!audio.paused) {
-          audio.pause(); // Pause the audio if it's playing
-          setIsPlaying(false); // Update state to reflect audio playback state
-        }
-        audio.removeEventListener("ended", handleAudioEnded);
-      };
-    }
-  }, [audio])
-
-  const handlePlayClick = (audioClip) => {
-    if (!audio) {
-      const newAudio = new Audio(audioClip);
-      setAudio(newAudio);
-      newAudio.play();
-      setIsPlaying(true);
-    } else {
-      if (audio.paused) {
-        audio.play();
-        setIsPlaying(true);
-      } else {
-        audio.pause();
-        setIsPlaying(false);
-      }
-    }
-  };
-
-  const handleAudioEnded = () => {
-    setIsPlaying(false); // Update state to reflect audio playback state
-  };
+function Track({ music, handleTrackClick, isPlaying, handlePlayClick, clickedTrack }) {
 
   return (
     <>
@@ -48,11 +12,11 @@ function Track({ music, handleTrackClick }) {
             {music.previewUrl !== null ? (
               <i
                 className={
-                  isPlaying
+                  isPlaying && music.id === clickedTrack
                     ? "fa-solid fa-circle-pause"
                     : "fa-regular fa-circle-play"
                 }
-                onClick={() => handlePlayClick(music.previewUrl)}
+                onClick={() => handlePlayClick(music)}
               ></i>
             ) : (
               ""

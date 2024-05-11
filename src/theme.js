@@ -62,11 +62,11 @@ const theme = createTheme({
     PlaylistTextField: {
       styleOverrides: {
         root: {
-          backgroundColor: '#020d15',
+          backgroundColor: 'white',
           width: "100%",
           paddingTop: '8px',
           '& input': {
-            color: 'white',
+            // color: 'white',
             fontSize: 'x-large',
             fontWeight: 'bold',
             marginTop: '-3%'
@@ -77,7 +77,7 @@ const theme = createTheme({
           //   fontWeight: 'bold'
           // },
           '.Mui-focused': {
-            color: "white",
+            // color: "white",
             fontSize: 'x-large',
             fontWeight: 'bold',
           },
