@@ -8,9 +8,7 @@ function Tracklist({ musicData, isAuthorized, handleTrackClick }) {
 
   useEffect(() => {
     if (audio) {
-      // Handles when music ends, it'll default back to play button
       audio.addEventListener("ended", handleAudioEnded);
-      // When there's a new search, pause the audio
       return () => {
         if (!audio.paused) {
           audio.pause();
@@ -19,7 +17,20 @@ function Tracklist({ musicData, isAuthorized, handleTrackClick }) {
         audio.removeEventListener("ended", handleAudioEnded);
       };
     }
-  }, [audio])
+  }, [audio]);
+
+  useEffect(() => {
+    stopPlayingTrack();
+  }, [musicData]);
+
+  const stopPlayingTrack = () => {
+    if (audio && !audio.paused) {
+      audio.pause();
+      setAudio(null);
+      setClickedTrack(null);
+      setIsPlaying(false);
+    }
+  };
 
   const handleAudioEnded = () => {
     setIsPlaying(false); // Update state to reflect audio playback state
@@ -27,11 +38,11 @@ function Tracklist({ musicData, isAuthorized, handleTrackClick }) {
 
   const handlePlayClick = (track) => {
     if (audio === null && isPlaying === false) {
-      const song = new Audio(track.previewUrl)
+      const song = new Audio(track.previewUrl);
       song.play();
       setAudio(song);
       setIsPlaying(true);
-      setClickedTrack(track.id)
+      setClickedTrack(track.id);
     } else if (clickedTrack === track.id && isPlaying === true) {
       audio.pause();
       setIsPlaying(false);
@@ -39,10 +50,10 @@ function Tracklist({ musicData, isAuthorized, handleTrackClick }) {
       audio.play();
       setIsPlaying(true);
     } else if (clickedTrack !== track.id) {
-      const song = new Audio(track.previewUrl)
+      const song = new Audio(track.previewUrl);
       audio.pause();
-      song.play()
-      setAudio(song)
+      song.play();
+      setAudio(song);
       setIsPlaying(true);
       setClickedTrack(track.id);
     }
