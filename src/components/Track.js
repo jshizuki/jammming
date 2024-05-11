@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // CSS
 import styles from "../css/Track.module.css";
 
